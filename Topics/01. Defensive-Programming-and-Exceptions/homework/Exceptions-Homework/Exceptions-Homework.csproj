@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="CSharpExam.cs" />
     <Compile Include="ExamResult.cs" />
+    <Compile Include="ILogger.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="PrimeChecker.cs" />
     <Compile Include="SimpleMathExam.cs" />
     <Compile Include="ExceptionsHomework.cs" />
     <Compile Include="Exam.cs" />

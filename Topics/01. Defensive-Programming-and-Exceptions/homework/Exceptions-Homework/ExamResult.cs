@@ -2,28 +2,26 @@
 
 public class ExamResult
 {
-    public int Grade { get; private set; }
-    public int MinGrade { get; private set; }
-    public int MaxGrade { get; private set; }
-    public string Comments { get; private set; }
-
     public ExamResult(int grade, int minGrade, int maxGrade, string comments)
     {
         if (grade < 0)
         {
-            throw new Exception();
+            throw new ArgumentOutOfRangeException("grade must be a non negative number.");
         }
+
         if (minGrade < 0)
         {
-            throw new Exception();
+            throw new ArgumentOutOfRangeException("minGrade must be a non negative number.");
         }
+
         if (maxGrade <= minGrade)
         {
-            throw new Exception();
+            throw new ArgumentOutOfRangeException("maxGrade must be larger than minGrade.");
         }
-        if (comments == null || comments == "")
+
+        if (string.IsNullOrEmpty(comments))
         {
-            throw new Exception();
+            throw new ArgumentNullException("comments must be a non empty string.");
         }
 
         this.Grade = grade;
@@ -31,4 +29,12 @@ public class ExamResult
         this.MaxGrade = maxGrade;
         this.Comments = comments;
     }
+
+    public int Grade { get; private set; }
+
+    public int MinGrade { get; private set; }
+
+    public int MaxGrade { get; private set; }
+
+    public string Comments { get; private set; }
 }
